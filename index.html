@@ -12,13 +12,13 @@
   <meta property="og:url" content="https://www.scottnathan.com" />
   <meta property="og:title" content="Scott Michael Nathan | Author, Podcaster &amp; Multidisciplinary Artist" />
   <meta property="og:description" content="Amazon #1 bestselling author of The Big Book of Bad Decisions, host of The Bad Decisions Podcast, award-winning photographer &amp; artist based in Los Angeles." />
-  <meta property="og:image" content="https://www.scottnathan.com/og-image.jpg" />
+  <meta property="og:image" content="images/BadDecisionsPodcast_ShowArt_1280x.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Scott Michael Nathan | Author, Podcaster &amp; Multidisciplinary Artist" />
   <meta name="twitter:description" content="Amazon #1 bestselling author of The Big Book of Bad Decisions. Host of The Bad Decisions Podcast." />
-  <meta name="twitter:image" content="https://www.scottnathan.com/og-image.jpg" />
+  <meta name="twitter:image" content="images/BadDecisionsPodcast_ShowArt_1280x.jpg" />
 
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://www.scottnathan.com" />
@@ -61,6 +61,9 @@
     "url": "https://baddecisionsbook.com"
   }
   </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -219,18 +222,19 @@
       margin: 0 auto 2.5rem;
     }
     .hero-photo-placeholder {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #2a2010 0%, #3d3015 100%);
       border: 3px solid var(--gold);
       margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--gold);
-      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(201,168,76,0.2);
+    }
+    .hero-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
     .cta-group {
       display: flex;
@@ -311,22 +315,15 @@
     }
     .about-photo-placeholder {
       width: 100%;
-      padding-top: 120%;
-      background: linear-gradient(135deg, #1a1208 0%, #2d2010 100%);
-      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 4px;
-      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.3);
     }
-    .about-photo-placeholder::after {
-      content: '[ Scott Photo Here ]';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--gold);
-      text-align: center;
+    .about-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .about-text p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 1.05rem; }
     .about-text p:last-child { margin-bottom: 0; }
@@ -341,16 +338,13 @@
     }
     .book-cover-placeholder {
       width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, #1a1208 0%, #2d2010 100%);
-      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--gold);
-      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .book-cover-placeholder img {
+      width: 100%;
+      display: block;
     }
     .badge {
       display: inline-block;
@@ -403,6 +397,21 @@
     .platform-card.youtube:hover { border-color: #ff0000; }
     .platform-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
+    .platform-btn {
+      display: inline-block;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .platform-btn:hover { transform: translateY(-2px); opacity: 0.85; }
+
+    .podcast-art {
+      float: right;
+      width: 180px;
+      border-radius: 12px;
+      margin: 0 0 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    @media (max-width: 600px) { .podcast-art { float: none; width: 120px; margin: 0 auto 1rem; display: block; } }
+
     .episode-placeholder {
       background: var(--dark4);
       border: 1px dashed rgba(201,168,76,0.3);
@@ -443,31 +452,45 @@
     }
     .gallery-item {
       aspect-ratio: 1;
-      background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
+      background: #1a1a1a;
       border: 1px solid rgba(201,168,76,0.15);
       border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--gold);
-      text-align: center;
+      overflow: hidden;
       transition: all 0.2s;
       cursor: pointer;
       position: relative;
-      overflow: hidden;
     }
     .gallery-item:hover {
       border-color: var(--gold);
       transform: scale(1.02);
     }
-    .gallery-item::before {
-      content: '📷';
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item .gallery-label {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 1rem;
-      opacity: 0.4;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: var(--gold);
+      font-size: 0.7rem;
+      padding: 1rem 0.5rem 0.4rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: rgba(201,168,76,0.5);
+      text-align: center;
     }
     .gallery-note {
       text-align: center;
@@ -528,6 +551,22 @@
       transform: translateY(-2px);
     }
     .merch-img-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #1a1a1a;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .merch-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .merch-card:hover .merch-img-placeholder img { transform: scale(1.04); }
+    .merch-img-emoji {
       width: 100%;
       aspect-ratio: 1;
       background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
@@ -630,7 +669,9 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="#" class="logo">Scott Michael Nathan</a>
+      <a href="#" class="logo" aria-label="Scott Michael Nathan">
+        <img src="images/logo.svg" alt="Scott Michael Nathan" style="height:26px; vertical-align:middle; filter:brightness(0) invert(1);" onerror="this.style.display='none'; this.nextSibling.style.display='inline';" /><span style="display:none">Scott Michael Nathan</span>
+      </a>
       <nav id="main-nav">
         <a href="#about" data-i18n="nav_about">About</a>
         <a href="#book" data-i18n="nav_book">Book</a>
@@ -649,8 +690,8 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-photo-placeholder" aria-label="Scott Michael Nathan photo">
-        [ Photo Here ]
+      <div class="hero-photo-placeholder">
+        <img src="images/BadDecisionsPodcast_ShowArt_1280x.jpg" alt="Scott Michael Nathan" />
       </div>
       <p class="hero-eyebrow" data-i18n="hero_eyebrow">Los Angeles · Author · Podcaster · Artist</p>
       <h1>Scott<br /><span>Michael</span><br />Nathan</h1>
@@ -667,7 +708,9 @@
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-photo-placeholder" role="img" aria-label="Scott Nathan portrait"></div>
+        <div class="about-photo-placeholder">
+          <img src="images/confessional_exhibit.jpg" alt="Scott Nathan — Confessional Series, Frieze Art Fair LA 2019" />
+        </div>
         <div class="about-text">
           <p class="section-label" data-i18n="about_label">About</p>
           <h2 class="section-title" data-i18n="about_title">The Man Behind the Bad Decisions</h2>
@@ -684,7 +727,9 @@
   <section id="book">
     <div class="container">
       <div class="book-grid">
-        <div class="book-cover-placeholder">[ Book Cover Here ]</div>
+        <div class="book-cover-placeholder">
+          <img src="images/book_cover.jpg" alt="The Big Book of Bad Decisions by Scott Michael Nathan" />
+        </div>
         <div>
           <span class="badge" data-i18n="book_badge">Amazon #1 Bestseller</span>
           <p class="section-label" data-i18n="book_label">The Book</p>
@@ -704,32 +749,21 @@
   <section id="podcast">
     <div class="container">
       <div class="podcast-header">
+        <img src="images/BadDecisionsPodcast_ShowArt_1280x.jpg" alt="The Bad Decisions Podcast" class="podcast-art" />
         <p class="section-label" data-i18n="podcast_label">Podcast</p>
         <h2 class="section-title" data-i18n="podcast_title">The Bad Decisions Podcast</h2>
         <div class="divider"></div>
         <p style="color:var(--text-muted); max-width:600px" data-i18n="podcast_desc">New episodes dropping regularly. Subscribe on your favorite platform — Apple Podcasts is the best experience.</p>
       </div>
       <div class="podcast-platforms">
-        <a href="https://podcasts.apple.com/us/podcast/the-bad-decisions-podcast-with-scott-nathan/id1751541179" target="_blank" rel="noopener noreferrer" class="platform-card apple">
-          <span class="icon">🎙️</span>
-          <div>
-            <div class="platform-label" data-i18n="podcast_listen_on">Listen on</div>
-            <div data-i18n="podcast_apple">Apple Podcasts</div>
-          </div>
+        <a href="https://podcasts.apple.com/us/podcast/the-bad-decisions-podcast-with-scott-nathan/id1751541179" target="_blank" rel="noopener noreferrer" class="platform-btn" aria-label="Listen on Apple Podcasts">
+          <img src="images/btn_apple_podcasts.svg" alt="Listen on Apple Podcasts" style="height:44px;" />
         </a>
-        <a href="https://open.spotify.com/show/6FbgytR0w2E4JYYBO88yvf" target="_blank" rel="noopener noreferrer" class="platform-card spotify">
-          <span class="icon">🟢</span>
-          <div>
-            <div class="platform-label" data-i18n="podcast_listen_on">Listen on</div>
-            <div data-i18n="podcast_spotify">Spotify</div>
-          </div>
+        <a href="https://open.spotify.com/show/6FbgytR0w2E4JYYBO88yvf" target="_blank" rel="noopener noreferrer" class="platform-btn" aria-label="Listen on Spotify">
+          <img src="images/btn_spotify.svg" alt="Listen on Spotify" style="height:44px;" />
         </a>
-        <a href="https://www.youtube.com/playlist?list=PLTS2Q17qAOsM6LisgRGzdw7_G5ml4QIyr" target="_blank" rel="noopener noreferrer" class="platform-card youtube">
-          <span class="icon">▶️</span>
-          <div>
-            <div class="platform-label" data-i18n="podcast_watch_on">Watch on</div>
-            <div data-i18n="podcast_youtube_playlist">YouTube</div>
-          </div>
+        <a href="https://www.youtube.com/playlist?list=PLTS2Q17qAOsM6LisgRGzdw7_G5ml4QIyr" target="_blank" rel="noopener noreferrer" class="platform-btn" aria-label="Watch on YouTube">
+          <img src="images/btn_youtube.svg" alt="Subscribe on YouTube" style="height:44px;" />
         </a>
       </div>
       <div class="episode-placeholder">
@@ -764,16 +798,35 @@
       <div class="divider"></div>
       <p style="color:var(--text-muted); margin-bottom:2rem" data-i18n="gallery_desc">Award-winning photographer. Frieze Art Fair exhibitor. Visual storyteller.</p>
       <div class="gallery-grid">
-        <div class="gallery-item" data-i18n="gallery_1">[ Photo 1 ]</div>
-        <div class="gallery-item" data-i18n="gallery_2">[ Photo 2 ]</div>
-        <div class="gallery-item" data-i18n="gallery_3">[ Photo 3 ]</div>
-        <div class="gallery-item" data-i18n="gallery_4">[ Photo 4 ]</div>
-        <div class="gallery-item" data-i18n="gallery_5">[ Photo 5 ]</div>
-        <div class="gallery-item" data-i18n="gallery_6">[ Photo 6 ]</div>
-        <div class="gallery-item" data-i18n="gallery_7">[ Photo 7 ]</div>
-        <div class="gallery-item" data-i18n="gallery_8">[ Photo 8 ]</div>
+        <div class="gallery-item">
+          <img src="images/confessional_exhibit.jpg" alt="Confessional Series — Frieze Art Fair LA 2019" />
+          <div class="gallery-label">Confessional Series · Frieze Art Fair 2019</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/BadDecisionsPodcast_ShowArt_1280x.jpg" alt="The Bad Decisions Podcast" />
+          <div class="gallery-label">The Bad Decisions Podcast</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/book_cover.jpg" alt="The Big Book of Bad Decisions" />
+          <div class="gallery-label">The Big Book of Bad Decisions</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">[ Photo 4 — add yours ]</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">[ Photo 5 — add yours ]</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">[ Photo 6 — add yours ]</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">[ Photo 7 — add yours ]</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">[ Photo 8 — add yours ]</div>
+        </div>
       </div>
-      <p class="gallery-note" data-i18n="gallery_note">Replace placeholder boxes with Scott's actual photography. Click → lightbox recommended.</p>
+      <p class="gallery-note" data-i18n="gallery_note">Send Scott's portfolio photos to fill the remaining slots — the first three are live now.</p>
       <div style="text-align:center; margin-top:2rem">
         <a href="https://baddecisionsbook.com/wp-content/uploads/Scott_Nathan_Confessional_Exhibit.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline" data-i18n="gallery_confessional">View Confessional Series (Frieze Art Fair)</a>
       </div>
@@ -823,32 +876,32 @@
       <div class="divider"></div>
       <div class="merch-grid">
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card">
-          <div class="merch-img-placeholder">👕</div>
+          <div class="merch-img-placeholder"><img src="images/merch_tshirt_navy.jpg" alt="Burning Bridges Tee" /></div>
           <div class="merch-name" data-i18n="merch_1_name">Burning Bridges Tee</div>
           <div class="merch-price">$31.00</div>
         </a>
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card">
-          <div class="merch-img-placeholder">☕</div>
+          <div class="merch-img-placeholder"><img src="images/merch_mug.jpg" alt="Bad Decisions Mug" /></div>
           <div class="merch-name" data-i18n="merch_2_name">Bad Decisions Mug</div>
           <div class="merch-price">$13.00</div>
         </a>
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card">
-          <div class="merch-img-placeholder">🧥</div>
+          <div class="merch-img-placeholder"><img src="images/merch_hoodie_green.jpg" alt="Bad Decisions Hoodie" /></div>
           <div class="merch-name" data-i18n="merch_3_name">Bad Decisions Hoodie</div>
           <div class="merch-price">$47.95</div>
         </a>
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card">
-          <div class="merch-img-placeholder">🎨</div>
+          <div class="merch-img-placeholder"><img src="images/merch_tee_forest.jpg" alt="Bad Decisions Tee" /></div>
           <div class="merch-name" data-i18n="merch_4_name">Bad Decisions Tee (All Colors)</div>
           <div class="merch-price">$25.00</div>
         </a>
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card">
-          <div class="merch-img-placeholder">📚</div>
+          <div class="merch-img-placeholder"><img src="images/book_cover.jpg" alt="Signed Paperback" /></div>
           <div class="merch-name" data-i18n="merch_5_name">Signed Paperback</div>
           <div class="merch-price">$35.00</div>
         </a>
         <a href="https://baddecisionsbook.com" target="_blank" rel="noopener noreferrer" class="merch-card" style="border:1px dashed rgba(201,168,76,0.4); justify-content:center; display:flex; flex-direction:column; align-items:center">
-          <div class="merch-img-placeholder">🛍️</div>
+          <div class="merch-img-emoji">🛍️</div>
           <div class="merch-name" data-i18n="merch_all">View All in Shop</div>
           <div class="merch-price" data-i18n="merch_all_sub">baddecisionsbook.com</div>
         </a>
